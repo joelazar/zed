@@ -1214,7 +1214,9 @@ impl ProjectSearchView {
         };
 
         search.update(cx, |search, cx| {
-            search.replace_enabled |= action.replace_enabled;
+            if let Some(replace_enabled) = action.replace_enabled {
+                search.replace_enabled = replace_enabled;
+            }
             if let Some(regex) = action.regex {
                 search.set_search_option_enabled(SearchOptions::REGEX, regex, cx);
             }

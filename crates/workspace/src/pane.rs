@@ -193,7 +193,7 @@ pub struct RevealInProjectPanel {
 #[serde(deny_unknown_fields)]
 pub struct DeploySearch {
     #[serde(default)]
-    pub replace_enabled: bool,
+    pub replace_enabled: Option<bool>,
     #[serde(default)]
     pub included_files: Option<String>,
     #[serde(default)]
